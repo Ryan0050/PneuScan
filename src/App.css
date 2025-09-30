@@ -1,38 +1,271 @@
-.App {
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.home{
+  width: 100%;
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: azure;
+}
+
+.diagnoseButton{
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  border: 1px solid grey;
+}
+
+.home .text{
+  font-size: 2rem;
+}
+
+.home h1{
+  margin-bottom: 1rem;
+  font-size: 5rem;
+}
+
+.inputScan{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: azure;
+}
+
+.aboutContent{
+  width: 100%;
+  height: 88%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  background-color: azure;
+}
+
+.info{
+  width: 40vw;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.aboutContent h2 , .aboutContent2 h2{
+  font-size: 2rem;
+  margin-bottom: 4vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.aboutContent .pneuScan{
+  margin-top: 15vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.topContent{
+  margin-top: 8vh;
+}
+
+.topContent h1{
+  font-size: 3rem;
+}
+
+.botContent{
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 12rem;
+  height: 12rem;
+  background-color: lightblue;
+  border-radius: 25px;
+  color: black;
+}
+
+.box h3{
+  font-size: 1rem;
+}
+
+.left,.right,.mid{
+  width: 8rem;
+  height: 8rem;
+}
+
+.aboutContent2{
+  width: 100%;
+  height: 75%;
+  padding-top: 4vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: azure;
+}
+
+.featuresContainer{
+  width: 55%;
+  height: 75%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.topFeatures , .botFeatures{
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.features{
+  width: 47%;
+  height: 100%;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.featuresPic{
+  width: 100%;
+  height: 40%;
+  display: flex;
   align-items: center;
+}
+
+.featuresContent{
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content at the bottom */
+}
+
+.featPic{
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1vw;
+}
+
+.inputScan {
+  text-align: center;
+}
+
+.inputScan h1{
+  margin-bottom: 2vh;
+}
+
+/* Hide the default file input */
+.hiddenInput {
+  display: none;
+}
+
+/* Custom label acting as the button */
+.customButton {
+  width: 70%;
+  height: 70%;
+  display: inline-block;
+  background-color: white;
+  border: 2px solid grey;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.insideCustom{
+  width: 95%;
+  height: 90%;
+  border: 2px dotted grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.picCustom{
+  width: 6rem;
+  height: 6rem;
+}
+
+.boxCustom{
+  width: 15vw;
+  height: 7vh;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh 0;
+}
+
+.imagePlace {
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid grey;
+  width: 70%;
+  height: 70%;  /* Keep the height fixed */
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  padding-bottom: 2rem;
+}
+
+.imageCont {
+  width: 30%;
+  height: 90%;
+  margin-top: 6vh;
+}
+
+.images{
+  height: 90%;
+  width: 100%;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.details{
+  height: 10%;
+  width: 100%;
+}
+
+.afterUpload{
+  width: 10%;
+  height: 5%;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 30px;
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
