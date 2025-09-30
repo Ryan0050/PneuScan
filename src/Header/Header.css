@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    height: 12%;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Add padding for spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+    position: relative; /* Default position to allow shadow rendering */
+    z-index: 1;
+}
+
+.logoContainer{
+    width: 9vh;
+    height: 9vh;
+    margin-left: 0.5vw;
+}
+
+.logo{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
+
+.pageButtonContainer{
+    height: 12vh;
+    width: 20vw;
+    margin-right: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.homeButton, .aboutButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 8vw;
+    border-radius: 20px;
+    border: 3px solid black;
+    position: relative; /* Needed for positioning the ::after pseudo-element */
+    overflow: hidden; /* Ensures the underline stays within bounds */
+}
+
+.pageButtonContainer a {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit color from parent */
+}
+
+/* Pseudo-element for underline */
+.homeButton::after, .aboutButton::after {
+    content: '';
+    position: absolute;
+    bottom: 20%; /* Positioned directly under the button */
+    left: 25%;
+    width: 50%; /* Full width of the button */
+    height: 2px; /* Thickness of the underline */
+    background-color: black; /* Color of the underline */
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover state */
+.homeButton:hover::after, .aboutButton:hover::after {
+    transform: scaleX(1); /* Expand the underline */
+}
