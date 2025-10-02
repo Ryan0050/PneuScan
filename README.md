@@ -1,46 +1,112 @@
-# Getting Started with Create React App
+# PneuScan AI Full-Stack Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack web application featuring a Python backend powered by Flask and TensorFlow for AI predictions, and a React frontend for the user interface.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🛠️ Prerequisites
 
-### `npm start`
+Before you begin, ensure you have the following installed on your system:
+* **Python 3.8+** ([Download](https://www.python.org/downloads/))
+* **Node.js v16+ and npm** ([Download](https://nodejs.org/))
+* **Git** ([Download](https://git-scm.com/))
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+Follow these steps to set up and run the project locally.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+First, clone the project from your Git repository to your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/Ryan0050/PneuScan.git
+cd PneuScan
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Set Up the Python Backend (Flask)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All backend setup commands should be run from inside the `flask-ai-backend` directory.
 
-### `npm run eject`
+**a. Navigate into the backend folder:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+cd flask-ai-backend
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**b. Create and activate a virtual environment:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* **On Windows (PowerShell):**
+    ```powershell
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+* **On macOS/Linux:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    Your terminal prompt should now be prefixed with `(venv)`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**c. Install Python dependencies:**
 
-## Learn More
+```bash
+pip install -r requirements.txt
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Set Up the React Frontend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The frontend dependencies are managed by npm. Run this command from the **project's root directory** (`PneuScan`). If you are still in the `flask-ai-backend` folder from the previous step, navigate back out first.
+
+```bash
+# Navigate back to the root if needed
+cd .. 
+
+# Install dependencies
+npm install
+```
+This will read `package.json` and create a `node_modules` folder.
+
+---
+
+## ▶️ Running the Application
+
+To run the full application, you need to start both the backend and frontend servers **in two separate terminals**.
+
+### Terminal 1: Start the Flask Backend 🧠
+
+1.  Navigate into the backend folder.
+    ```bash
+    cd flask-ai-backend
+    ```
+2.  Activate the virtual environment if it's not already active.
+    ```powershell
+    # On Windows
+    .\venv\Scripts\activate
+    ```
+3.  Run the Flask server.
+    ```bash
+    flask run
+    ```
+    ✅ The backend API is now running, typically at `http://127.0.0.1:5000`.
+
+### Terminal 2: Start the React Frontend 🎨
+
+1.  Open a **new** terminal window.
+2.  Make sure you are in the project's **root directory** (`PneuScan`).
+3.  Run the React development server.
+    ```bash
+    npm start
+    ```
+    ✅ The frontend is now running and will open in your browser, typically at `http://localhost:3000`.
+
+---
+
+### 📂 Project Structure
+
+* `/flask-ai-backend/`: Contains all Python backend logic, including `app.py`, `venv`, and `requirements.txt`.
+* `/src/`: Contains the React frontend application source code.
+* `/public/`: Contains static assets for the frontend like `index.html`.
+* `package.json`: Lists all JavaScript dependencies for the frontend (located in the root).
