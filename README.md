@@ -4,6 +4,14 @@ This project is a full-stack web application featuring a Python backend powered 
 
 ---
 
+## 🤖 AI Model
+
+The deep learning model used for pneumonia detection in this project is based on or sourced from the following repository.
+
+* **Model Source GitHub:** **[Name of the AI Model Repository]**([https://github.com/Ryan0050/AI-Scan-Paru-Paru])
+
+---
+
 ## 🛠️ Prerequisites
 
 Before you begin, ensure you have the following installed on your system:
