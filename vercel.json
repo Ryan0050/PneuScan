@@ -1,20 +1,23 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "pythonVersion": "3.11" 
-      }
+      "use": "@vercel/python"
     },
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "api/index.py" }
-  ]
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    }
+  ],
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.11"
+    }
+  }
 }
