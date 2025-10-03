@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the pre-trained model
-model = load_model('models/pneumonia_model.keras')
+model = load_model('api/models/pneumonia_model.keras')
 labels = ['PNEUMONIA', 'NORMAL']
 img_size = 200  # Input size for the model
 
