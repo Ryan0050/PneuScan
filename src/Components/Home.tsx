@@ -33,7 +33,7 @@ function Home() {
         try {
           // Send all selected images to the backend in one request
           const response = await axios.post(
-            "/api/predict",
+            "http://localhost:5000/predict",
             formData,
             {
               headers: {
@@ -65,7 +65,7 @@ function Home() {
           {!hasUploaded && (
             <label htmlFor="fileInput" className="customButton">
               <div className='insideCustom'>
-                <img src={Images} className="picCustom" alt=''/>
+                <img src={Images} className="picCustom" />
                 <div className='boxCustom'>Upload Image Here</div>
                 <div>Get result immediately</div>
               </div>
