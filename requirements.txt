@@ -8,12 +8,12 @@ Jinja2==3.1.4
 MarkupSafe==2.1.5
 Werkzeug==3.0.3
 
-# TensorFlow Lite for running the model
-tensorflow-lite
-numpy==1.26.4 # Kept for image processing
+# TensorFlow Lite Runtime (smaller than tensorflow-lite)
+tflite-runtime==2.14.0
+numpy==1.26.4
 
 # OpenCV and its dependencies
-opencv-python==4.10.0.84
+opencv-python-headless==4.10.0.84  # Use headless version for serverless
 
 # Pillow (Image Library)
 Pillow==10.4.0
@@ -24,9 +24,3 @@ certifi==2024.7.4
 charset-normalizer==3.3.2
 idna==3.7
 urllib3==2.2.2
-
-# Rich (Terminal Formatting)
-rich==13.7.1
-markdown-it-py==3.0.0
-mdurl==0.1.2
-pygments==2.18.0
