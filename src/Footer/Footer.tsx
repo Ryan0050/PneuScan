@@ -10,7 +10,7 @@ const Footer = ()=> {
     return(
         <footer className='footer'> 
         <div className='topFooter'>
-          <img src={Binus} className="binus" />
+          <img src={Binus} className="binus" alt=""/>
           <div className='quickNcontact'>
             <Link to="/" className='quick'>
               Home
@@ -19,19 +19,19 @@ const Footer = ()=> {
               About
             </Link>
             <div>
-              <img src={V1} className="contact" />
+              <img src={V1} className="contact" alt=""/>
             </div>
             <div>
-              <img src={V2} className="contact" />
+              <img src={V2} className="contact" alt=""/>
             </div>
             <div>
-              <img src={V3} className="contact" />
+              <img src={V3} className="contact" alt=""/>
             </div>
           </div>
         </div>
         <div className='downFooter'>
             <div>
-              <img src={copyright} className="copy" />
+              <img src={copyright} className="copy" alt=""/>
               2024 PneuScan. All rights reserved
             </div>
             <div>

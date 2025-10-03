@@ -65,7 +65,7 @@ function Home() {
           {!hasUploaded && (
             <label htmlFor="fileInput" className="customButton">
               <div className='insideCustom'>
-                <img src={Images} className="picCustom" />
+                <img src={Images} className="picCustom" alt=''/>
                 <div className='boxCustom'>Upload Image Here</div>
                 <div>Get result immediately</div>
               </div>
