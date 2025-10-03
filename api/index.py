@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import tflite_runtime.interpreter as tflite
+from tensorflow import lite as tflite
 import cv2
 import numpy as np
 from flask_cors import CORS
