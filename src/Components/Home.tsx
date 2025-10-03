@@ -33,7 +33,7 @@ function Home() {
         try {
           // Send all selected images to the backend in one request
           const response = await axios.post(
-            "http://localhost:5000/predict",
+            "/api/predict",
             formData,
             {
               headers: {
