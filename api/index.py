@@ -1,57 +1,43 @@
 from flask import Flask, request, jsonify
-import tflite_runtime.interpreter as tflite 
+from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-# Load the TFLite model and allocate tensors
-interpreter = tflite.Interpreter(model_path='models/pneumonia_model.tflite')
-interpreter.allocate_tensors()
-
-# Get input and output details
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
-
+# Load the pre-trained .keras model directly from the file
+model = load_model('models/pneumonia_model.keras')
 labels = ['PNEUMONIA', 'NORMAL']
 img_size = 200
 
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict():
+    # ... your prediction logic remains the same ...
+    # (Make sure this function is exactly as you had it originally)
     if 'image' not in request.files:
         return jsonify({'error': 'No files uploaded'}), 400
-
     images = request.files.getlist('image')
     predictions = []
-
     try:
         for img_file in images:
             img_arr = cv2.imdecode(np.frombuffer(img_file.read(), np.uint8), cv2.IMREAD_GRAYSCALE)
-            
-            # Ensure the image is resized to match the model's expected input shape
-            resized_arr = cv2.resize(img_arr, (img_size, img_size))
-            
-            # Add batch and channel dimensions, and ensure dtype is float32
-            input_data = resized_arr.reshape(1, img_size, img_size, 1).astype(np.float32)
-            normalized_img = input_data / 255.0
-
-            # Set the tensor, invoke the interpreter, and get the result
-            interpreter.set_tensor(input_details[0]['index'], normalized_img)
-            interpreter.invoke()
-            prediction = interpreter.get_tensor(output_details[0]['index'])
-            
+            resized_arr = cv2.resize(img_arr, (img_size, img_size)).reshape(1, img_size, img_size, 1)
+            normalized_img = resized_arr / 255.0
+            prediction = model.predict(normalized_img)
             confidence = float(prediction[0][0])
-
             if confidence > 0.80:
                 label = 'NORMAL'
             else:
                 label = 'PNEUMONIA'
-
             predictions.append({'result': label})
-
         return jsonify(predictions)
-
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+# This part is optional for Railway but good for local testing
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

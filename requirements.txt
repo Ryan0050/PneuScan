@@ -1,26 +1,9 @@
-# Flask and its dependencies
-Flask==3.0.3
-Flask-Cors==4.0.1
-blinker==1.8.2
-click==8.1.7
-itsdangerous==2.2.0
-Jinja2==3.1.4
-MarkupSafe==2.1.5
-Werkzeug==3.0.3
-
-# TensorFlow Lite Runtime (smaller than tensorflow-lite)
-tflite-runtime==2.14.0
-numpy==1.26.4
-
-# OpenCV and its dependencies
-opencv-python-headless==4.10.0.84  # Use headless version for serverless
-
-# Pillow (Image Library)
-Pillow==10.4.0
-
-# Requests and its dependencies
-requests==2.32.3
-certifi==2024.7.4
-charset-normalizer==3.3.2
-idna==3.7
-urllib3==2.2.2
+Flask
+Flask-Cors
+tensorflow
+numpy
+opencv-python
+Pillow
+requests
+rich
+gunicorn
